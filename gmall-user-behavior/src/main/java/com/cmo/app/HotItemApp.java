@@ -10,6 +10,7 @@ import org.apache.flink.api.common.state.ListStateDescriptor;
 import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.TimeCharacteristic;
+import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
@@ -31,6 +32,7 @@ import java.util.Iterator;
  */
 public class HotItemApp {
     public static void main(String[] args) throws Exception {
+
         //获取执行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
@@ -178,8 +180,8 @@ public class HotItemApp {
             for (int i = 0; i < Math.min(topsize, itemCounts.size()); i++) {
                 //取出数据
                 ItemCount itemCount = itemCounts.get(i);
-                sb.append("Top").append(i + 1);
-                sb.append("ItemId=").append(itemCount.getItemId());
+                sb.append("Top ").append(i + 1);
+                sb.append("ItemId= ").append(itemCount.getItemId());
                 sb.append("商品热度：").append(itemCount.getCount());
                 sb.append("\n");
             }
@@ -193,6 +195,9 @@ public class HotItemApp {
             //5.输出数据
             out.collect(sb.toString());
         }
+
+
+
     }
 
 }

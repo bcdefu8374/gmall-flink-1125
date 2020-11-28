@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gmall-user-behavior" />
+        <module name="gmall-market" />
+        <module name="gmall-login-fail" />
         <module name="gmall-network-flow" />
+        <module name="gmall-user-behavior" />
+        <module name="gmall-order-pay" />
       </profile>
     </annotationProcessing>
   </component>
